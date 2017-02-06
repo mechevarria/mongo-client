@@ -14,3 +14,6 @@ Edit `var url = 'mongodb://demo-vm:27017/test';` to point to the mongodb server 
 
 The output should be
 **Connected successfully to mongodb://demo-vm:27017/test**
+
+## Problems?
+If you are connecting to a remote server make sure the server is listening on all interfaces.  In `/etc/mongod.conf` comment out the ` bindIp` variable
