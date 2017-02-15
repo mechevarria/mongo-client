@@ -11,16 +11,28 @@ MongoClient.connect(url, function (err, db) {
     assert.equal(null, err);
     console.log('Connected successfully to ' + url);
 
-    insertDocuments(db, function() {
+    insertDocuments(db, function () {
         db.close();
     });
 });
 
-var insertDocuments = function(db, callback) {
+var insertDocuments = function (db, callback) {
 
     var collection = db.collection(config.collection);
 
-    collection.insertMany(data.features, function(err, result) {
+    var documents = [];
+
+    data.features.forEach(function (feature) {
+        var document = {};
+        document.name = feature.properties.NAME;
+        document.type = 'Feature';
+        document.geoType = feature.geometry.type;
+        document.geoCoordinates = feature.geometry.coordinates;
+
+        documents.push(document);
+    });
+
+    collection.insertMany(documents, function (err, result) {
         assert.equal(err, null);
         console.log('Successfully inserted ' + result.ops.length + ' documents');
         callback(result);
