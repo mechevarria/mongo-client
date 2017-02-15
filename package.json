@@ -4,6 +4,7 @@
   "description": "Simple client to check mongo-connectivity",
   "author": "Mike Echevarria",
   "dependencies": {
-    "mongodb": "2.2.22"
+    "mongodb": "2.2.22",
+    "base-64": "0.1.0"
   }
 }

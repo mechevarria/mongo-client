@@ -1,4 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
+var base64 = require('base-64');
+
 var assert = require('assert');
 
 var config = require('./config.json');
@@ -27,7 +29,9 @@ var insertDocuments = function (db, callback) {
         document.name = feature.properties.NAME;
         document.type = 'Feature';
         document.geoType = feature.geometry.type;
-        document.geoCoordinates = feature.geometry.coordinates;
+
+        var encoded = base64.encode(JSON.stringify(feature));
+        document.geoCoordinates = encoded;
 
         documents.push(document);
     });
