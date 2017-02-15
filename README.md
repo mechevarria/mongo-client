@@ -17,3 +17,6 @@ Edit `config.json` to point to change the url, document and collection if needed
 ## To Undo
 
 `node clean.js`
+
+## Problems?
+If you are connecting to a remote server make sure the server is listening on all interfaces.  In `/etc/mongod.conf` comment out the ` bindIp` variable
