@@ -1,7 +1,7 @@
 {
   "name": "mongo-client",
   "version": "0.1.0",
-  "description": "Simple client to check mongo-connectivity",
+  "description": "Upload mult-value json in MongoDB",
   "author": "Mike Echevarria",
   "dependencies": {
     "mongodb": "2.2.22",
